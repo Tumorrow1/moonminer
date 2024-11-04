@@ -3,7 +3,7 @@ let cheese = 0;
 let clickupgrades = [
     {
         name: `pickaxe`,
-        price: 50,
+        price: 5,
         quantity: 0,
         bonus: 2
 
@@ -12,7 +12,7 @@ let clickupgrades = [
     },
     {
         name: `shovel`,
-        price: 100,
+        price: 10,
         quantity: 0,
         bonus: 5
     }
@@ -21,21 +21,42 @@ let clickupgrades = [
 let automaticupgrades = [
     {
         name: `drill`,
-        price: 500,
+        price: 50,
         quantity: 0,
         bonus: 20
     },
     {
         name: `mini-x`,
-        price: 1000,
+        price: 100,
         quantity: 0,
         bonus: 50
     }
 ]
+setInterval(() => {
+    let bonus = 0;
 
+    automaticupgrades.forEach(upgrade => {
+        bonus += upgrade.bonus * upgrade.quantity
+    })
+
+    cheese += bonus;
+
+    console.log(`cheese`, cheese)
+    drawminestates()
+
+
+
+}, 3000)
 
 function mine() {
-    cheese += 1
+    let bonus = 1;
+
+    clickupgrades.forEach(upgrade => {
+        bonus += upgrade.bonus * upgrade.quantity
+    })
+
+    cheese += bonus;
+
     console.log(`cheese`, cheese)
     drawminestates()
 
@@ -49,22 +70,18 @@ function drawminestates() {
 drawminestates()
 document.getElementById(`mine`);
 
-function purchasclicableitem(pickaxe) {
-    const foundclickableitems = clickableitems.find(clickableitems => clickableitems.name == clickableItems)
-
-    if (cheese < foundclickableitems.price) {
+function purchasclicableitem(clickableupgrade) {
+    let foundclickableitem = clickupgrades.find(clickableitems => clickableitems.name == clickableupgrade)
+    if (!foundclickableitem) { foundclickableitem = automaticupgrades.find(clickableitems => clickableitems.name == clickableupgrade) }
+    if (cheese < foundclickableitem.price) {
         window.alert(`you cant afford the ${foundclickableitem.name}!`)
+        return
 
     }
-
+    cheese -= foundclickableitem.price
+    foundclickableitem.quantity++
+    drawminestates()
 }
-function puchaspickaxe() {
-    pickaxe.quantity += 1
-    console.log(`puchasepickaxe`, puchaspickaxe)
-
-}
-
-
 
 
 
