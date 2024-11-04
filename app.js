@@ -78,13 +78,26 @@ function purchasclicableitem(clickableupgrade) {
         return
 
     }
+    console.log('purchased', foundclickableitem.name);
+    //TODO how to turn 'pickaxe' into 'pickaxe-price' for a getByID() to draw the new price
     cheese -= foundclickableitem.price
     foundclickableitem.quantity++
+    // TODO price of the item must go up/ UI to indicate that price (draw for buttons)
     drawminestates()
 }
 
 
+function drawUpgradeQuantities() {
+    // TODO this needs to loop through upgrades/autoUpgrades and draw each upgrades quantity to the page
+}
 
+function calculateClickBonus() {
+    // TODO reference store-front/ spooky store
+}
+
+function calculateAutoBonus() {
+
+}
 
 
 
