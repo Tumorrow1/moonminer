@@ -41,9 +41,21 @@
             <div class="col-12 space-between">
                 <button onclick="purchasclicableitem(`pickaxe`)" class="btn btn-primary">pickaxe <span
                         id="pickaxe-price">5</span></button>
-                <button onclick="purchasclicableitem(`shovel`)" class="btn btn-primary">shovel</button>
-                <button onclick="purchasclicableitem(`drill`)" class="btn btn-primary">drill</button>
-                <button onclick="purchasclicableitem(`mini-x`)" class="btn btn-primary">mini-x</button>
+                <div class="text-white">pickaxe count:<span id="pickaxe-count" class="text-white">0</span>
+                </div>
+                <button onclick="purchasclicableitem(`shovel`)" class="btn btn-primary">shovel
+                    <span id="shovel-price">10</span>
+                </button>
+                <div class="text-white">shovel count: <span id="shovel-count" class="text-white">0</span>
+                </div>
+                <button onclick="purchasclicableitem(`drill`)" class="btn btn-primary">drill <span
+                        id="drill-price">50</span></button>
+                <div class="text-white">drill count: <span id="drill-count" class="text-white">0</span>
+                </div>
+                <button onclick="purchasclicableitem(`mini-x`)" class="btn btn-primary">mini-x <span
+                        id="mini-x-price">100</span></button>
+                <div class="text-white">mini-x count: <span id="mini-x-count" class="text-white">0</span>
+                </div>
 
                 <div class="col-6"></div>
             </div>

@@ -65,7 +65,7 @@ function drawminestates() {
     const mineelm = document.
         getElementById(`mine`)
     console.log(`got the mine elm`, mineelm)
-    mineelm.innerHTML = cheese
+    mineelm.innerHTML = cheese.toString()
 }
 drawminestates()
 document.getElementById(`mine`);
@@ -79,10 +79,13 @@ function purchasclicableitem(clickableupgrade) {
 
     }
     console.log('purchased', foundclickableitem.name);
-    //TODO how to turn 'pickaxe' into 'pickaxe-price' for a getByID() to draw the new price
+
     cheese -= foundclickableitem.price
     foundclickableitem.quantity++
-    // TODO price of the item must go up/ UI to indicate that price (draw for buttons)
+    foundclickableitem.price = Math.ceil(foundclickableitem.price *= 1.5)
+    document.getElementById(`${foundclickableitem.name}-price`).innerText = foundclickableitem.price.toString()
+    document.getElementById(`${foundclickableitem.name}-count`).innerText = foundclickableitem.quantity.toString()
+
     drawminestates()
 }
 
